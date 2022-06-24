@@ -14,6 +14,7 @@ const ingredients = [
 3 Добавит элементу класс item.
 4 После чего вставит все <li> за одну операцию в список ul.ingredients. */
 
+/* -----из головы------
 const ul = document.querySelector('#ingredients');
 
 const liList = [...ingredients].map(function (el, index) {
@@ -24,4 +25,20 @@ const liList = [...ingredients].map(function (el, index) {
 });
 
 console.log(ul);
-console.log([...ingredients]);
+console.log([...ingredients]); */
+
+/* ------После просмотра Репеты =) -------*/
+
+const ingredientsContainerEl = document.querySelector('#ingredients');
+
+const elements = ingredients.map(option => {
+  const ingredientEL = document.createElement('li');
+  ingredientEL.textContent = option;
+  ingredientEL.classList = 'item';
+
+  return ingredientEL;
+});
+
+ingredientsContainerEl.append(...elements);
+
+console.log(ingredientsContainerEl);
