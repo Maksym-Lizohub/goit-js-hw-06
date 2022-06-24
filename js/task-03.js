@@ -25,3 +25,22 @@ const images = [
 Все элементы галереи должны добавляться в DOM за одну операцию вставки.
 Добавь минимальное оформление галереи флексбоксами или гридами через 
 CSS классы. */
+
+const makeGalleryItemMarkup = galleryItem => {
+  const { url, alt } = galleryItem;
+
+  return `
+  <li>
+    <img src=${url} alt=${alt} >
+  </li>
+  `;
+};
+
+const gallery = document.querySelector('.gallery');
+const makeGalleryItems = images.map(makeGalleryItemMarkup).join('');
+
+gallery.insertAdjacentHTML('beforeend', makeGalleryItems);
+
+console.log(gallery);
+
+/* Есть вопросы */
