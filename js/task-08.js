@@ -29,8 +29,6 @@ const refs = {
   onform: document.querySelector('.login-form'),
 };
 
-refs.onform.addEventListener('submit', onFormSubmit);
-
 function onFormSubmit(event) {
   event.preventDefault();
 
@@ -43,7 +41,8 @@ function onFormSubmit(event) {
       [email.name]: email.value,
       [password.name]: password.value,
     };
-    refs.onform.reset();
-    console.log(objToSubmit);
+    return objToSubmit;
   }
 }
+
+refs.onform.addEventListener('submit', onFormSubmit);
