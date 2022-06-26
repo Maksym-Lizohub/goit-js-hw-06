@@ -26,20 +26,17 @@ const images = [
 Добавь минимальное оформление галереи флексбоксами или гридами через 
 CSS классы. */
 
-const makeGalleryItemMarkup = galleryItem => {
-  const { url, alt } = galleryItem;
+const refGallery = document.querySelector('.gallery');
 
-  return `
-  <li>
-    <img src=${url} alt=${alt} >
-  </li>
-  `;
-};
+const makeGallery = images
+  .map(({ url, alt }) => {
+    return `<li><img src= ${url} alt= ${alt}></li>`;
+  })
+  .join('');
 
-const gallery = document.querySelector('.gallery');
-const makeGalleryItems = images.map(makeGalleryItemMarkup).join('');
+/* const makeGalleryItems = images.map(makeGalleryItemMarkup).join(''); */
 
-gallery.insertAdjacentHTML('beforeend', makeGalleryItems);
+refGallery.insertAdjacentHTML('beforeend', makeGallery);
 
 console.log(gallery);
 
