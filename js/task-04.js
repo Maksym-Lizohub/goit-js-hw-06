@@ -18,14 +18,14 @@ const incBtn = document.querySelector('[data-action = "increment"]');
 
 decBtn.addEventListener('click', () => {
   counterValue -= 1;
-  value.textContent = counterValue;
+  value.value = counterValue;
 
-  console.log(value.textContent);
+  console.log(value.value);
 });
 
 incBtn.addEventListener('click', () => {
   counterValue += 1;
-  value.textContent = counterValue;
+  value.value = counterValue;
 
-  console.log(value.textContent);
+  console.log(value.value);
 });
