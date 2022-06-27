@@ -25,24 +25,55 @@
 5. Выведи обьект с введенными данными в консоль и очисти значения 
 полей формы методом reset. */
 
-const refs = {
+/* const refs = {
   onform: document.querySelector('.login-form'),
 };
 
-function onFormSubmit(event) {
+refs.onform.addEventListener('submit', event => {
   event.preventDefault();
-
-  const { email, password } = event.currentTarget.elements;
+  const {
+    elements: { email, password },
+  } = event.currentTarget;
 
   if (!email.value.includes('@') || password.value.length < 6) {
-    alert('Все поля должны быть заполнены. Пароль не менее 6 символов');
+    alert(`Все поля должны быть заполнены. Пароль не менее 6 символов`);
   } else {
     const objToSubmit = {
       [email.name]: email.value,
       [password.name]: password.value,
     };
-    return objToSubmit;
   }
+}); */
+
+/* const onForm = document.querySelector('.login-form');
+
+onForm.addEventListener('submit', event => {
+  event.preventDefault();
+
+  const { email, password } = event.currentTarget.elements;
+
+  if (!email.value.includes('@') || password.value.length < 1) {
+    console.log(email);
+    return alert('Все поля должны быть заполнены!');
+  }
+  const formData = {
+    [email.name]: email.value,
+    [password.name]: password.value,
+  };
+  
+  event.currentTarget.reset();
+}); */
+
+function logSubmit(event) {
+  event.currentTarget.elements = {
+    email: email.value,
+    password: password.value,
+  };
+
+  event.preventDefault();
 }
 
-refs.onform.addEventListener('submit', onFormSubmit);
+const onForm = document.querySelector('.login-form');
+/* const log = document.getElementById('log'); */
+
+onForm.addEventListener('submit', logSubmit);
