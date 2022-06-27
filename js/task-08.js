@@ -56,7 +56,7 @@ function onSendForm(event) {
   const email = formEl.email.value;
   const password = formEl.password.value;
 
-  if (!email || password !== '') {
+  if (email !== '' && password !== '') {
     const formData = { email, password };
     console.log(formData);
     event.currentTarget.reset();
