@@ -45,35 +45,24 @@ refs.onform.addEventListener('submit', event => {
   }
 }); */
 
-/* const onForm = document.querySelector('.login-form');
+const refs = {
+  onform: document.querySelector('.login-form'),
+};
 
-onForm.addEventListener('submit', event => {
+function onSendForm(event) {
   event.preventDefault();
 
-  const { email, password } = event.currentTarget.elements;
+  const formEl = event.currentTarget.elements;
+  const email = formEl.email.value;
+  const password = formEl.password.value;
 
-  if (!email.value.includes('@') || password.value.length < 1) {
-    console.log(email);
-    return alert('Все поля должны быть заполнены!');
+  if (!email || password !== '') {
+    const formData = { email, password };
+    console.log(formData);
+    event.currentTarget.reset();
+  } else {
+    alert('Все поля должны быть заполнены.');
   }
-  const formData = {
-    [email.name]: email.value,
-    [password.name]: password.value,
-  };
-  
-  event.currentTarget.reset();
-}); */
-
-function logSubmit(event) {
-  event.currentTarget.elements = {
-    email: email.value,
-    password: password.value,
-  };
-
-  event.preventDefault();
 }
 
-const onForm = document.querySelector('.login-form');
-/* const log = document.getElementById('log'); */
-
-onForm.addEventListener('submit', logSubmit);
+refs.onform.addEventListener('submit', onSendForm);
